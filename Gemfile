@@ -17,7 +17,7 @@ gem "newclear" # Completely wipe out the simulator and rebuild
 # gem "ProMotion-iap" # PM In-app purchases
 # gem "ProMotion-menu" # PM Side menu
 
-gem "bubble-wrap"
+# gem "bubble-wrap"
 
 # Screenshot acceptance comparison tool
 # gem "motion-juxtapose", "~> 0.1"

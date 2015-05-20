@@ -52,13 +52,13 @@ Motion::Project::App.setup do |app|
   end
 
   app.development do
-    app.codesign_certificate = "iPhone Developer: YOURNAME"
+    app.codesign_certificate = "iPhone Developer: 理想 Mu"
     app.provisioning_profile = "signing/ninjamap.mobileprovision"
   end
 
   app.release do
     app.entitlements['get-task-allow'] = false
-    app.codesign_certificate = 'iPhone Distribution: YOURNAME'
+    app.codesign_certificate = 'iPhone Distribution: 理想 Mu'
     app.provisioning_profile = "signing/ninjamap.mobileprovision"
     app.entitlements['beta-reports-active'] = true # For TestFlight
 

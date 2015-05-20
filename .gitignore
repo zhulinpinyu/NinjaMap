@@ -6,6 +6,7 @@ resources/*.nib
 resources/*.momd
 resources/*.storyboardc
 resources/*.xcdatamodeld
+resources/key.yml
 vendor/Pods
 .DS_Store
 nbproject

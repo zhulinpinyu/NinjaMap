@@ -11,7 +11,7 @@ Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings
 
   app.name = 'NinjaMap'
-  app.identifier = 'com.your_domain_here.ninjamap'
+  app.identifier = 'com.zlpy.ninjamap'
 
   app.short_version = '0.1.0'
   # Get version from git
@@ -45,6 +45,7 @@ Motion::Project::App.setup do |app|
 
   app.pods do
     pod 'JMImageCache'
+    pod 'Google-Maps-iOS-SDK'
   #   pod 'JGProgressHUD'
   #   pod 'SVProgressHUD'
   #   pod "FontasticIcons"

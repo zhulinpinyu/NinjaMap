@@ -51,6 +51,12 @@ Motion::Project::App.setup do |app|
   #   pod "FontasticIcons"
   end
 
+  app.frameworks += ['CoreLocation']
+
+  # Description for the Location service allow dialog
+  app.info_plist['NSLocationAlwaysUsageDescription'] = "地图应用要获取您当前的位置"
+  app.info_plist['NSLocationWhenInUseUsageDescription'] = "地图应用要获取您当前的位置"
+
   app.development do
     app.codesign_certificate = "iPhone Developer: 理想 Mu"
     app.provisioning_profile = "signing/ninjamap.mobileprovision"

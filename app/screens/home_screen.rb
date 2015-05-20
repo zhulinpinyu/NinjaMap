@@ -1,8 +1,11 @@
 class HomeScreen < PM::Screen
+  include YamlHelper
+
   title "Your title here"
   stylesheet HomeScreenStylesheet
 
   def on_load
+    p key
     set_nav_bar_button :left, system_item: :camera, action: :nav_left_button
     set_nav_bar_button :right, title: "Right", action: :nav_right_button
 
@@ -15,6 +18,10 @@ class HomeScreen < PM::Screen
 
   def nav_right_button
     mp 'Right button'
+  end
+
+  def key
+    yaml["google_map"]
   end
 
   # You don't have to reapply styles to all UIViews, if you want to optimize, another way to do it

@@ -7,7 +7,7 @@ class HomeScreen < PM::Screen
   stylesheet HomeScreenStylesheet
 
   def on_load
-    set_nav_bar_button :left, title: UIImage.imageNamed("list.png"), type: UIBarButtonItemStylePlain
+    set_nav_bar_button :left, title: UIImage.imageNamed("list.png"), action: :show_menu, type: UIBarButtonItemStylePlain
     @map = Map.new({type: "Google"})
     location_manager
     self.view = map.view
@@ -20,5 +20,9 @@ class HomeScreen < PM::Screen
     append(UIButton,:current_location_button).on(:touch) do
       self.view.animateToCameraPosition(map.center(@coordinate))
     end
+  end
+
+  def show_menu
+    app_delegate.show_menu
   end
 end

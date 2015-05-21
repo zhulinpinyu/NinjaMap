@@ -22,15 +22,29 @@ PODS:
     - AFNetworking/NSURLSession
   - Google-Maps-iOS-SDK (1.9.2)
   - JMImageCache (0.4.0)
+  - MMDrawerController (0.6.0):
+    - MMDrawerController/Core (= 0.6.0)
+    - MMDrawerController/MMDrawerBarButtonItem (= 0.6.0)
+    - MMDrawerController/MMDrawerVisualStates (= 0.6.0)
+    - MMDrawerController/Subclass (= 0.6.0)
+  - MMDrawerController/Core (0.6.0)
+  - MMDrawerController/MMDrawerBarButtonItem (0.6.0):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.6.0):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.6.0):
+    - MMDrawerController/Core
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - Google-Maps-iOS-SDK
   - JMImageCache
+  - MMDrawerController (~> 0.5)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   Google-Maps-iOS-SDK: 4c008abdb68e03ae125c7f674be841d369e2b3de
   JMImageCache: fac25eb168a25b29ac130fee6a6b17ea463c1d86
+  MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
 
 COCOAPODS: 0.37.1

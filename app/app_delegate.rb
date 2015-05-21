@@ -5,6 +5,10 @@ class AppDelegate < PM::Delegate
 
   def on_load(app, options)
     cdq.setup
-    open HomeScreen.new(nav_bar: true)
+    @menu = open MenuDrawer
+  end
+
+  def show_menu
+    @menu.show :left
   end
 end

@@ -15,7 +15,7 @@ gem "newclear" # Completely wipe out the simulator and rebuild
 # gem "ProMotion-push", "~> 0.2" # Push Notifications
 # gem "ProMotion-map", "~> 0.3"  # PM::MapScreen
 # gem "ProMotion-iap" # PM In-app purchases
-# gem "ProMotion-menu" # PM Side menu
+gem "ProMotion-menu" # PM Side menu
 
 # gem "bubble-wrap"
 

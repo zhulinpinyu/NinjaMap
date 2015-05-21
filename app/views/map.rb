@@ -2,7 +2,7 @@ class Map
   attr_reader :map
 
   def initialize(options={type: "Google"})
-    @map = Map::Google.new
+    @map = Object.const_get("#{options[:type]}").new
   end
 
   def view
@@ -10,6 +10,6 @@ class Map
   end
 
   def center(coordinate={})
-    map.camera(coordinate,14)
+    map.center(coordinate)
   end
 end

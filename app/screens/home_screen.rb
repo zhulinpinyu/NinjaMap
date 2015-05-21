@@ -7,7 +7,7 @@ class HomeScreen < PM::Screen
   stylesheet HomeScreenStylesheet
 
   def on_load
-    @map = GoogleMap.new
+    @map = MapManager.new({type: "Google"}).map
     location_manager
     self.view = map.view
   end

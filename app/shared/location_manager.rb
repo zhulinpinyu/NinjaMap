@@ -10,8 +10,9 @@ module LocationManager
   def locationManager(manager, didUpdateToLocation:newLocation, fromLocation:oldLocation)
     lat = newLocation.coordinate.latitude
     lon = newLocation.coordinate.longitude
-    @marker ||= map.marker({latitude: lat, longitude: lon})
-    @marker.position = CLLocationCoordinate2DMake(lat,lon)
-    self.view.animateToCameraPosition(map.center({latitude: lat, longitude: lon}))
+    coordinate = CoordinateTransform.wgs2gcj(lat,lon)
+    @marker ||= map.marker(coordinate)
+    @marker.position = CLLocationCoordinate2DMake(coordinate[:latitude],coordinate[:longitude])
+    self.view.animateToCameraPosition(map.center(coordinate))
   end
 end

@@ -14,5 +14,7 @@ class HomeScreen < PM::Screen
 
   def will_appear
     @location_manager.startUpdatingLocation
+    kfc = {latitude: 22.533773, longitude: 114.029946}
+    map.marker(kfc)
   end
 end

@@ -5,6 +5,6 @@ class AppDelegate < PM::Delegate
 
   def on_load(app, options)
     cdq.setup
-    open HomeScreen.new(nav_bar: true)
+    open HomeScreen.new(nav_bar: false)
   end
 end

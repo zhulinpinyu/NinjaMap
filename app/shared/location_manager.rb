@@ -10,6 +10,7 @@ module LocationManager
   def locationManager(manager, didUpdateToLocation:newLocation, fromLocation:oldLocation)
     lat = newLocation.coordinate.latitude
     lon = newLocation.coordinate.longitude
-    self.view.animateToCameraPosition(map.center({latitude: lat, longitude: lon}))
+    map.marker({latitude: lat, longitude: lon})
+    #self.view.animateToCameraPosition(map.center({latitude: lat, longitude: lon}))
   end
 end

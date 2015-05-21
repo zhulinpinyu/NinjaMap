@@ -25,6 +25,10 @@ class Map
     map.center(coordinate)
   end
 
+  def marker(coordinate={})
+    map.marker(coordinate)
+  end
+
   private
 
     def clazz_instance(type)

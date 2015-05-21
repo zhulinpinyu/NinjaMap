@@ -7,6 +7,7 @@ class HomeScreen < PM::Screen
   stylesheet HomeScreenStylesheet
 
   def on_load
+    set_nav_bar_button :left, title: UIImage.imageNamed("list.png"), type: UIBarButtonItemStylePlain
     @map = Map.new({type: "Google"})
     location_manager
     self.view = map.view

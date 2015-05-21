@@ -15,6 +15,9 @@ class MapboxScreen < PM::Screen
 
   def will_appear
     @location_manager.startUpdatingLocation
+    append(UIButton,:current_location_button).on(:touch) do
+      self.view.centerCoordinate = CLLocationCoordinate2DMake(@coordinate[:latitude],@coordinate[:longitude])
+    end
   end
 
   def show_menu

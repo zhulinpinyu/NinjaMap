@@ -16,6 +16,7 @@ module LocationManager
       @marker.position = CLLocationCoordinate2DMake(@coordinate[:latitude],@coordinate[:longitude])
       self.view.animateToCameraPosition(map.center(@coordinate))
     elsif self.class.to_s == "MapboxScreen"
+      @coordinate = {latitude: lat, longitude: lon}
       self.view.centerCoordinate = CLLocationCoordinate2DMake(lat,lon)
     end
   end

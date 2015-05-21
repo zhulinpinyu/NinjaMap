@@ -35,6 +35,8 @@ class Map
       case type
       when "Google"
         Maps::Google.new
+      when "Mapbox"
+        Maps::Mapbox.new
       end
     end
 end

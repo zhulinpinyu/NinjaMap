@@ -5,9 +5,13 @@ class NavigationScreen < PM::TableScreen
     [{
       title: nil,
       cells: [{
-        title: "Home",
+        title: "Google",
         action: :swap_center_controller,
         arguments: HomeScreen.new(nav_bar: true)
+      },{
+        title: "Mapbox",
+        action: :swap_center_controller,
+        arguments: MapboxScreen.new(nav_bar: true)
       }]
     }]
   end

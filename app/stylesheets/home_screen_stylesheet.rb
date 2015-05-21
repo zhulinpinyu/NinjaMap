@@ -9,4 +9,9 @@ class HomeScreenStylesheet < ApplicationStylesheet
     st.background_color = color.white
   end
 
+  def current_location_button(st)
+    st.frame = {grid: "k16", r:10, w: 45, h: 45}
+    st.background_image = image.resource("position")
+  end
+
 end

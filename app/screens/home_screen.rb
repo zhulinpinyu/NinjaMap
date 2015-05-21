@@ -16,5 +16,8 @@ class HomeScreen < PM::Screen
     @location_manager.startUpdatingLocation
     kfc = {latitude: 22.533773, longitude: 114.029946}
     map.marker(kfc)
+    append(UIButton,:current_location_button).on(:touch) do
+      self.view.animateToCameraPosition(map.center(@coordinate))
+    end
   end
 end

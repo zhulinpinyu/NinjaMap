@@ -16,6 +16,8 @@ GEM
     ProMotion (2.4.2)
       methadone (~> 1.7)
       motion_print (~> 1.0)
+    ProMotion-map (0.7.0)
+      ProMotion (~> 2.0)
     ProMotion-menu (1.1.0)
       ProMotion (~> 2)
       motion-cocoapods (~> 1)
@@ -89,6 +91,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ProMotion-map (~> 0.7)
   ProMotion-menu
   afmotion
   cdq

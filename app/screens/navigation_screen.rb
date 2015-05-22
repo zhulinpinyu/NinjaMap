@@ -12,6 +12,10 @@ class NavigationScreen < PM::TableScreen
         title: "Mapbox",
         action: :swap_center_controller,
         arguments: MapboxScreen.new(nav_bar: true)
+      },{
+        title: "Amap",
+        action: :swap_center_controller,
+        arguments: AmapScreen.new(nav_bar: true)
       }]
     }]
   end

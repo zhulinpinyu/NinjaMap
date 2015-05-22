@@ -13,7 +13,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    ProMotion (2.4.1)
+    ProMotion (2.4.2)
       methadone (~> 1.7)
       motion_print (~> 1.0)
     ProMotion-menu (1.1.0)

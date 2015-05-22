@@ -4,7 +4,7 @@ module LocationManager
     @location_manager.delegate = self
     @location_manager.desiredAccuracy = KCLLocationAccuracyNearestTenMeters
     @location_manager.requestWhenInUseAuthorization
-    @location_manager.distanceFilter = 30
+    @location_manager.distanceFilter = 100
   end
 
   def locationManager(manager, didUpdateToLocation:newLocation, fromLocation:oldLocation)

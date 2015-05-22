@@ -7,8 +7,7 @@ class MapboxScreen < PM::Screen
   stylesheet MapboxScreenStylesheet
 
   def on_load
-    set_nav_bar_button :left, title: UIImage.imageNamed("list.png"), action: :show_menu, type: UIBarButtonItemStylePlain
-    set_nav_bar_button :right, title: UIImage.imageNamed("TrackingLocationOffMaskLandscape.png"), action: :tracking_location, type: UIBarButtonItemStylePlain
+    init_nav
     location_manager
     @map = Map.new({type: "Mapbox"})
     self.view = map.view
@@ -26,5 +25,10 @@ class MapboxScreen < PM::Screen
 
   def tracking_location
     self.view.centerCoordinate = CLLocationCoordinate2DMake(@coordinate[:latitude],@coordinate[:longitude])
+  end
+
+  def init_nav
+    set_nav_bar_button :left, title: UIImage.imageNamed("list.png"), action: :show_menu, type: UIBarButtonItemStylePlain
+    set_nav_bar_button :right, title: UIImage.imageNamed("TrackingLocationOffMaskLandscape.png"), action: :tracking_location, type: UIBarButtonItemStylePlain
   end
 end

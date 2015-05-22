@@ -16,6 +16,9 @@ class AmapScreen < PM::MapScreen
 
   def will_appear
     show_user_location
+    append(UIButton,:current_location_button).on(:touch) do
+      self.view.setCenterCoordinate(CLLocationCoordinate2DMake(@coordinate[0],@coordinate[1]),animated: true)
+    end
   end
 
   def annotation_data
@@ -37,7 +40,7 @@ class AmapScreen < PM::MapScreen
   end
 
   def on_user_location(location)
-    coordinate = location.coordinate.to_a
-    self.view.setCenterCoordinate(CLLocationCoordinate2DMake(coordinate[0],coordinate[1]),animated: true)
+    @coordinate = location.coordinate.to_a
+    self.view.setCenterCoordinate(CLLocationCoordinate2DMake(@coordinate[0],@coordinate[1]),animated: false)
   end
 end

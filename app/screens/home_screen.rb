@@ -7,7 +7,7 @@ class HomeScreen < PM::Screen
   stylesheet HomeScreenStylesheet
 
   def on_load
-    set_nav_bar_button :left, title: UIImage.imageNamed("list.png"), action: :show_menu, type: UIBarButtonItemStylePlain
+    init_nav
     @map = Map.new({type: "Google"})
     location_manager
     self.view = map.view
@@ -17,12 +17,18 @@ class HomeScreen < PM::Screen
     @location_manager.startUpdatingLocation
     kfc = {latitude: 22.533773, longitude: 114.029946}
     map.marker(kfc)
-    append(UIButton,:current_location_button).on(:touch) do
-      self.view.animateToCameraPosition(map.center(@coordinate))
-    end
   end
 
   def show_menu
     app_delegate.show_menu
+  end
+
+  def tracking_location
+    self.view.animateToCameraPosition(map.center(@coordinate))
+  end
+
+  def init_nav
+    set_nav_bar_button :left, title: UIImage.imageNamed("list.png"), action: :show_menu, type: UIBarButtonItemStylePlain
+    set_nav_bar_button :right, title: UIImage.imageNamed("TrackingLocationOffMaskLandscape.png"), action: :tracking_location, type: UIBarButtonItemStylePlain
   end
 end

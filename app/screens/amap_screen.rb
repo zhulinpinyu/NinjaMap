@@ -11,14 +11,11 @@ class AmapScreen < PM::MapScreen
   })
 
   def on_load
-    set_nav_bar_button :left, title: UIImage.imageNamed("list.png"), action: :show_menu, type: UIBarButtonItemStylePlain
+    init_nav
   end
 
   def will_appear
     show_user_location
-    append(UIButton,:current_location_button).on(:touch) do
-      self.view.setCenterCoordinate(CLLocationCoordinate2DMake(@coordinate[0],@coordinate[1]),animated: true)
-    end
   end
 
   def annotation_data
@@ -42,5 +39,14 @@ class AmapScreen < PM::MapScreen
   def on_user_location(location)
     @coordinate = location.coordinate.to_a
     self.view.setCenterCoordinate(CLLocationCoordinate2DMake(@coordinate[0],@coordinate[1]),animated: false)
+  end
+
+  def tracking_location
+    self.view.setCenterCoordinate(CLLocationCoordinate2DMake(@coordinate[0],@coordinate[1]),animated: true)
+  end
+
+  def init_nav
+    set_nav_bar_button :left, title: UIImage.imageNamed("list.png"), action: :show_menu, type: UIBarButtonItemStylePlain
+    set_nav_bar_button :right, title: UIImage.imageNamed("TrackingLocationOffMaskLandscape.png"), action: :tracking_location, type: UIBarButtonItemStylePlain
   end
 end

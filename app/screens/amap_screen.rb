@@ -11,6 +11,7 @@ class AmapScreen < PM::MapScreen
   })
 
   def on_load
+    set_nav_bar_button :left, title: UIImage.imageNamed("list.png"), action: :show_menu, type: UIBarButtonItemStylePlain
   end
 
   def annotation_data
@@ -25,6 +26,9 @@ class AmapScreen < PM::MapScreen
 
   def show_details
     selected = selected_annotations.first
-    p selected.title
+  end
+
+  def show_menu
+    app_delegate.show_menu
   end
 end

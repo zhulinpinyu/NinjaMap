@@ -29,6 +29,7 @@ GEM
     afmotion (2.5)
       motion-cocoapods (>= 1.4.1)
       motion-require (>= 0.1)
+    bubble-wrap (1.8.0)
     builder (3.2.2)
     cdq (1.0.2)
       motion-yaml
@@ -94,6 +95,7 @@ DEPENDENCIES
   ProMotion-map (~> 0.7)
   ProMotion-menu
   afmotion
+  bubble-wrap
   cdq
   motion-cocoapods
   newclear

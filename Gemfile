@@ -17,7 +17,7 @@ gem "ProMotion-map", "~> 0.7"  # PM::MapScreen
 # gem "ProMotion-iap" # PM In-app purchases
 gem "ProMotion-menu" # PM Side menu
 
-# gem "bubble-wrap"
+gem "bubble-wrap"
 
 # Screenshot acceptance comparison tool
 # gem "motion-juxtapose", "~> 0.1"

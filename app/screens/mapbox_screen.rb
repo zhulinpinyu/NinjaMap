@@ -17,6 +17,9 @@ class MapboxScreen < PM::Screen
     @location_manager.startUpdatingLocation
     kfc = {latitude: 22.5365675788, longitude: 114.0248910542}
     map.marker(kfc)
+    self.view.when_tapped do |sender|
+      p "Tapped!" * 6
+    end
   end
 
   def show_menu

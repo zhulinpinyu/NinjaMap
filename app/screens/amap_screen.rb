@@ -1,48 +1,22 @@
-class AmapScreen < PM::MapScreen
+class AmapScreen < PM::Screen
+  KEY = "key"
   title "Amap"
   stylesheet AmapScreenStylesheet
 
-  start_position(latitude: 22.53, longitude: 114.03, radius: 0.05)
-
-  tap_to_add(length: 1.5, annotation: {
-    title: "MLX Dropped in",
-    animates_drop: true,
-    action: :show_details
-  })
-
   def on_load
     init_nav
+    MAMapServices.sharedServices.apiKey = KEY
+    map_view = MAMapView.alloc.initWithFrame(CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)))
+    #map_view.delegate = self
+    self.view = map_view
   end
 
   def will_appear
-    show_user_location
-  end
-
-  def annotation_data
-    [{
-      coordinate: CLLocationCoordinate2DMake(22.53, 114.03),
-      title: "Rainbow Falls",
-      subtitle: "Nantahala National Forest",
-      image: UIImage.imageNamed("icon-60"),
-      action: :show_details
-    }]
-  end
-
-  def show_details
-    selected = selected_annotations.first
+    
   end
 
   def show_menu
     app_delegate.show_menu
-  end
-
-  def on_user_location(location)
-    @coordinate = location.coordinate.to_a
-    self.view.setCenterCoordinate(CLLocationCoordinate2DMake(@coordinate[0],@coordinate[1]),animated: false)
-  end
-
-  def tracking_location
-    self.view.setCenterCoordinate(CLLocationCoordinate2DMake(@coordinate[0],@coordinate[1]),animated: true)
   end
 
   def init_nav

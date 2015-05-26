@@ -45,8 +45,9 @@ Motion::Project::App.setup do |app|
 
   app.pods do
     pod 'JMImageCache'
-    pod 'Google-Maps-iOS-SDK'
-    pod 'Mapbox-iOS-SDK', '1.6.1'
+    #pod 'Google-Maps-iOS-SDK'
+    #pod 'Mapbox-iOS-SDK', '1.6.1'
+    pod 'AMap3DMap'
   #   pod 'JGProgressHUD'
   #   pod 'SVProgressHUD'
   #   pod "FontasticIcons"

@@ -5,10 +5,8 @@ class AmapScreen < PM::Screen
 
   def on_load
     init_nav
-    MAMapServices.sharedServices.apiKey = KEY
-    map_view = MAMapView.alloc.initWithFrame(CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)))
-    #map_view.delegate = self
-    self.view = map_view
+    @map = Map.new({type: "Amap"})
+    self.view = @map.view
   end
 
   def will_appear

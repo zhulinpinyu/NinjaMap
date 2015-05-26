@@ -37,6 +37,8 @@ class Map
         Maps::Google.new
       when "Mapbox"
         Maps::Mapbox.new
+      when "Amap"
+        Maps::Amap.new
       end
     end
 end

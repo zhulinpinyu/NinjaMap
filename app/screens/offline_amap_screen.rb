@@ -2,6 +2,7 @@ class OfflineAmapScreen < PM::TableScreen
   attr_reader :cities
 
   title "Offline Amap"
+  searchable(placeholder: "搜索城市")
 
   def on_load
     @cities = MAOfflineMap.sharedOfflineMap.cities

@@ -23,7 +23,15 @@ class OfflineAmapScreen < PM::TableScreen
   end
 
   def download(item)
-    MAOfflineMap.sharedOfflineMap.downloadItem(item,shouldContinueWhenAppEntersBackground:true,downloadBlock: nil)
+    BW::UIAlertView.new({
+      message: "下载 #{item.name} 的离线地图?",
+      buttons: ['取消','下载'],
+      cancel_button_index: 0
+    }) do |alert|
+      unless alert.clicked_button.cancel?
+        MAOfflineMap.sharedOfflineMap.downloadItem(item,shouldContinueWhenAppEntersBackground:true,downloadBlock: nil)
+      end
+    end.show
   end
 
   def status(city)

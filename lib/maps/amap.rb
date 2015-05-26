@@ -1,15 +1,16 @@
 module Maps
   class Amap
     include YamlHelper
-    attr_reader :map_view
+    attr_reader :map_view, :bounds
 
-    def initialize
+    def initialize(options)
       MAMapServices.sharedServices.apiKey = key
+      @bounds = options[:bounds]
     end
 
     def view
       coordinate = {latitude: 22.53, longitude: 114.02}
-      @map_view = MAMapView.alloc.initWithFrame([[0,0],[375,667]])
+      @map_view = MAMapView.alloc.initWithFrame(bounds)
       @map_view.setCenterCoordinate(coordinate2D(coordinate))
       @map_view.setZoomLevel(17, animated: false)
       #map_view.delegate = self

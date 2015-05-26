@@ -14,7 +14,7 @@ class Map
     #@map = Kernel.const_get("#{options[:type]}").new
     #@map = Object.const_get("#{options[:type]}").new
 
-    @map = clazz_instance(options[:type])
+    @map = clazz_instance(options)
   end
 
   def view
@@ -31,14 +31,14 @@ class Map
 
   private
 
-    def clazz_instance(type)
-      case type
+    def clazz_instance(options)
+      case options[:type]
       when "Google"
         Maps::Google.new
       when "Mapbox"
         Maps::Mapbox.new
       when "Amap"
-        Maps::Amap.new
+        Maps::Amap.new(options)
       end
     end
 end

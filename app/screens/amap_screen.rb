@@ -1,11 +1,18 @@
 class AmapScreen < PM::Screen
+  include LocationManager
+
   title "Amap"
   stylesheet AmapScreenStylesheet
 
   def on_load
     init_nav
-    @map = Map.new({type: "Amap",bounds: self.view.bounds})
+    location_manager
+    @map = Map.new({type: "Amap"})
     self.view = @map.view
+  end
+
+  def will_appear
+    @location_manager.startUpdatingLocation
   end
 
   # def show_menu
@@ -13,6 +20,10 @@ class AmapScreen < PM::Screen
   # end
   def offline_map
     open OfflineAmapScreen.new(nav_bar: true)
+  end
+
+  def tracking_location
+    self.view.setCenterCoordinate(CLLocationCoordinate2DMake(@coordinate[:latitude],@coordinate[:longitude]), animated: true)
   end
 
   def init_nav

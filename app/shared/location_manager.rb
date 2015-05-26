@@ -18,6 +18,8 @@ module LocationManager
     elsif self.class.to_s == "MapboxScreen"
       @coordinate = {latitude: lat, longitude: lon}
       self.view.centerCoordinate = CLLocationCoordinate2DMake(lat,lon)
+    elsif self.class.to_s == "AmapScreen"
+      @coordinate = {latitude: lat, longitude: lon}
     end
   end
 end

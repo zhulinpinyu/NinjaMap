@@ -38,7 +38,7 @@ class Map
       when "Mapbox"
         Maps::Mapbox.new
       when "Amap"
-        Maps::Amap.new(options)
+        Maps::Amap.new
       end
     end
 end

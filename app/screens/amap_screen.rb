@@ -1,5 +1,4 @@
 class AmapScreen < PM::Screen
-  KEY = "key"
   title "Amap"
   stylesheet AmapScreenStylesheet
 
@@ -13,12 +12,15 @@ class AmapScreen < PM::Screen
     
   end
 
-  def show_menu
-    app_delegate.show_menu
+  # def show_menu
+  #   app_delegate.show_menu
+  # end
+  def offline_map
+    open OfflineAmapScreen.new(nav_bar: true)
   end
 
   def init_nav
-    set_nav_bar_button :left, title: UIImage.imageNamed("list.png"), action: :show_menu, type: UIBarButtonItemStylePlain
+    set_nav_bar_button :left, title: UIImage.imageNamed("list.png"), action: :offline_map, type: UIBarButtonItemStylePlain
     set_nav_bar_button :right, title: UIImage.imageNamed("TrackingLocationOffMaskLandscape.png"), action: :tracking_location, type: UIBarButtonItemStylePlain
   end
 end

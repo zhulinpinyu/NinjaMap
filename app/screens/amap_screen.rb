@@ -6,7 +6,7 @@ class AmapScreen < PM::Screen
   def on_load
     init_nav
     @map = Map.new({type: "Amap"})
-    self.view = @map.view
+    self.view.addSubview(@map.view)
   end
 
   def will_appear

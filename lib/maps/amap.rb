@@ -25,10 +25,11 @@ module Maps
     end
 
     def marker(coordinate)
-      # marker = GMSMarker.alloc.init
-      # marker.position = CLLocationCoordinate2DMake(coordinate[:latitude], coordinate[:longitude])
-      # marker.map = map_view
-      # marker
+      marker = MAPointAnnotation.alloc.init
+      marker.coordinate = CLLocationCoordinate2DMake(coordinate[:latitude], coordinate[:longitude])
+      marker.title = "KFC"
+      marker.subtitle = "天安数码KFC"
+      map_view.addAnnotation(marker)
     end
 
     private

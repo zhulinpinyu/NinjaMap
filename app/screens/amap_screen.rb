@@ -1,6 +1,8 @@
 class AmapScreen < PM::Screen
   include LocationManager
 
+  attr_reader :map
+
   title "Amap"
   stylesheet AmapScreenStylesheet
 
@@ -13,6 +15,8 @@ class AmapScreen < PM::Screen
 
   def will_appear
     @location_manager.startUpdatingLocation
+    kfc = {latitude: 22.533773, longitude: 114.029946}
+    map.marker(kfc)
   end
 
   # def show_menu

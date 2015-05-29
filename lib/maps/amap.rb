@@ -16,7 +16,7 @@ module Maps
       @map_view.compassOrigin = CGPointMake(@map_view.compassOrigin.x, 22)
       @map_view.showsUserLocation = true
       @map_view.setUserTrackingMode(MAUserTrackingModeFollow,animated: true)
-      #map_view.delegate = self
+      @map_view.delegate = amap_delegate
       @map_view
     end
 
@@ -40,6 +40,10 @@ module Maps
 
       def coordinate2D(coordinate)
         CLLocationCoordinate2DMake(coordinate[:latitude], coordinate[:longitude])
+      end
+
+      def amap_delegate
+        @amap_delegate ||= AmapDelegate.new
       end
   end
 end

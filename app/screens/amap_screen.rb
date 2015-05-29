@@ -17,6 +17,8 @@ class AmapScreen < PM::Screen
     @location_manager.startUpdatingLocation
     kfc = {latitude: 22.533773, longitude: 114.029946}
     map.marker(kfc)
+    map.marker({latitude: 22.535, longitude: 114.03})
+    map.marker({latitude: 22.535, longitude: 114.032})
   end
 
   # def show_menu

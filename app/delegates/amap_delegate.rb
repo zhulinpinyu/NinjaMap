@@ -24,4 +24,21 @@ class AmapDelegate
       view.setPinColor(MAPinAnnotationColorRed)
     end
   end
+
+  def mapView(map_view, regionDidChangeAnimated: animated)
+    region = map_view.region
+    p region
+    cc = region.center
+    delta = region.span
+    map_view.addAnnotation(marker({latitude: (cc.latitude-delta.latitudeDelta/2.0), longitude: (cc.longitude-delta.longitudeDelta/2.0)}))
+  end
+
+  def marker(coordinate)
+      marker = MAPointAnnotation.alloc.init
+      marker.coordinate = CLLocationCoordinate2DMake(coordinate[:latitude], coordinate[:longitude])
+      marker.title = "KFC"
+      marker.subtitle = "天安数码KFC"
+      marker
+    end
+
 end

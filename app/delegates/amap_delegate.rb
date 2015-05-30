@@ -26,19 +26,20 @@ class AmapDelegate
   end
 
   def mapView(map_view, regionDidChangeAnimated: animated)
+    annotations = map_view.annotations.map {|a| a if a.is_a?(MAPointAnnotation)}
+    map_view.removeAnnotations(annotations)
     region = map_view.region
-    p region
     cc = region.center
     delta = region.span
     map_view.addAnnotation(marker({latitude: (cc.latitude-delta.latitudeDelta/2.0), longitude: (cc.longitude-delta.longitudeDelta/2.0)}))
   end
 
   def marker(coordinate)
-      marker = MAPointAnnotation.alloc.init
-      marker.coordinate = CLLocationCoordinate2DMake(coordinate[:latitude], coordinate[:longitude])
-      marker.title = "KFC"
-      marker.subtitle = "天安数码KFC"
-      marker
+      annotation = MAPointAnnotation.alloc.init
+      annotation.coordinate = CLLocationCoordinate2DMake(coordinate[:latitude], coordinate[:longitude])
+      annotation.title = "KFC"
+      annotation.subtitle = "天安数码KFC"
+      annotation
     end
 
 end
